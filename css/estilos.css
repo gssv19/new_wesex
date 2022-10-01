@@ -51,18 +51,18 @@ p {
 }
 
 .banner .content_banner {
-    max-width: 900px;
+    max-width: 1500px;
     text-align: center;
 }
 
 .banner .content_banner h2 {
-    font-size: 62px;
+    font-size: 70px;
     text-transform: initial;
     color: var(--color_amarillo);
 }
 
 .banner .content_banner p {
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 400;
     letter-spacing: 0.5px;
     color: #FFF;
@@ -191,6 +191,98 @@ header.stiky .navigation_items li a {
 header.stiky .navigation_items li a:hover {
     color: var(--main_color);
 }
+
+/* ------------------------------------------------------------------------- */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 60px;
+    max-height: 60px;
+    padding: 40px 100px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+footer.stiky {
+    background: var(--color_amarillo);
+    padding: 10px 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer .logo {
+    max-width: 137px;
+}
+
+footer.stiky .icon_nav {
+    color: var(--main_color);
+}
+
+footer .logo span {
+    color: var(--main_color);
+}
+
+footer .navigation_items {
+    position: relative;
+    display: flex;
+}
+
+footer .navigation_items li {
+    list-style: none;
+    margin-left: 30px;
+}
+
+footer .navigation_items li a {
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+footer .navigation_items li a:hover {
+    color: var(--color_amarillo);
+}
+
+footer.stiky .navigation_items li a {
+    color: #111;
+}
+
+footer.stiky .navigation_items li a:hover {
+    color: var(--main_color);
+}
+
+.a_pp {
+    background: var(--color_whatsapp);
+    color: var(--color_white);
+    text-decoration: none;
+    font-size: 20px;
+    border: 2px solid var(--color_whatsapp);
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 30px 10px 10px 10px;
+}
+
+.a_pp span.__icon_ {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.a_pp:hover {
+    background: var(--color_amarillo);
+    color: var(--main_color);
+    border: 2px solid var(--color_amarillo);
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+
+/* ------------------------------------------------------------------------- */
 
 /*****************************************************************************
 *                              SECCION SERVICIOS                             *
@@ -827,13 +919,18 @@ hr {
         padding: 10px 20px;
     }
 
-    header .navigation_items .icon_nav,
-    header.stiky .navigation_items .icon_nav {
-        color: var(--main_color);
+    header .navigation_items {
+        position: relative;
+        display: flex;
+        min-width: 100%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
 
-    header .navigation_items {
-        display: none;
+    header .navigation_items .icon_nav,
+    header.stiky .navigation_items .icon_nav {
+        color: var(--color_amarillo);
     }
 
     header .navigation_items.active {
@@ -850,14 +947,9 @@ hr {
         padding: 0 20px;
     }
 
-    header .navigation_items li {
-        margin-left: 0;
-        margin-bottom: 20px;
-    }
-
     header .navigation_items li a {
-        color: #111;
-        font-size: 1.6em;
+        color: var(--color_white);
+        font-size: 20px;
     }
 
     .menutoggle {
@@ -880,6 +972,31 @@ hr {
 
     header.stiky .menutoggle {
         filter: invert(1);
+    }
+
+    footer {
+        background: var(--color_amarillo);
+        display: flex;
+        justify-content: center;
+    }
+
+    footer.stiky {
+        bottom: 78px;
+        display: flex;
+        justify-content: center;
+    }
+
+    footer.stiky .copyrightText {
+        display: none;
+    }
+
+    footer.stiky .navigation_items li {
+        list-style: none;
+        margin-left: 10px;
+    }
+
+    footer.stiky .navigation_items li a {
+        font-size: 16px;
     }
 
     section {
@@ -1077,6 +1194,16 @@ hr {
 }
 
 @media (max-width: 480px) {
+    header {
+        display: none;
+        margin: 20px 0px;
+    }
+
+    header .navigation_items li a {
+        color: var(--color_white);
+        font-size: 18px;
+    }
+
     header .logo,
     header.stiky .logo {
         font-size: 1.3em;
@@ -1090,8 +1217,16 @@ hr {
         width: 50%;
     }
 
+    .banner .content_banner img {
+        width: 50%;
+    }
+
     .banner .content_banner h2 {
         font-size: 2.2em;
+    }
+
+    .a_pp {
+        margin: 5px;
     }
 
     section#envios,
@@ -1245,6 +1380,12 @@ hr {
         font-size: 16px;
         padding: 10px 25px;
     }
+
+    .copyrightText {
+        padding: 0px;
+    }
+
+    #ciudades_footer { display: none; }
 }
 
 @media (max-width: 375px) {
