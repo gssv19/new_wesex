@@ -282,6 +282,10 @@ footer.stiky .navigation_items li a:hover {
     transition: 0.5s;
 }
 
+#footer_tow {
+    display: none;
+}
+
 /* ------------------------------------------------------------------------- */
 
 /*****************************************************************************
@@ -990,6 +994,10 @@ hr {
         display: none;
     }
 
+    #footer_tow {
+        display: block;
+    }
+
     footer.stiky .navigation_items li {
         list-style: none;
         margin-left: 10px;
@@ -1450,7 +1458,6 @@ hr {
 }
 
 @media (max-width: 251px) {
-
     .action_ll_wthp,
     .aR_btn_map {
         grid-template-columns: 1fr;
