@@ -81,6 +81,16 @@
             </div>
         </section>
     </main>
+    <div id="qsomos" class="modalmask">
+        <div class="modalbox movedown">
+            <a href="#close" title="Close" class="close">X</a>
+            <h2>Somos</h2>
+            <br>
+            <p>Una agencia de Encomiendas reconocida en nuestra región, por la confianza y seguridad que le ofrecemos a nuestros clientes, presentando innovadores servicios y asegurando entregas estables, promoviendo un ambiente de buenas relaciones y obteniendo la mayor satisfacción de nuestros clientes.</p>
+            <br>  
+            <p>Servicio personalizado de calidad y confiabilidad, a través de la buena atención de nuestro personal debidamente capacitado, entregando encomiendas, a precios accesibles, logrando superar las expectativas de nuestros clientes.</p>
+        </div>
+    </div>
 
     <!-- Header foother -->
     <footer class="stiky">
@@ -174,7 +184,73 @@
             -moz-box-shadow: 0px 0px 15px 0px rgba(7,94,84,1);
             box-shadow: 0px 0px 15px 0px rgba(7,94,84,1);
             transition-duration: 1s;
-        } 
+        }
+
+        /*Efecto*/
+        .modalmask {
+            position: fixed;
+            font-family: Arial, sans-serif;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 99999;
+            opacity:0;
+            -webkit-transition: opacity 400ms ease-in;
+            -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+            pointer-events: none;
+        }
+
+        .modalmask:target {
+            opacity:1;
+            pointer-events: auto;
+        }
+
+        .modalmask p {
+            font-size: 20px;
+        }
+
+        /*Formato de la ventana*/
+        .modalbox{
+            width: 400px;
+            position: relative;
+            padding: 5px 20px 13px 20px;
+            background: #fff;
+            -webkit-transition: all 500ms ease-in;
+            -moz-transition: all 500ms ease-in;
+            transition: all 500ms ease-in;
+            
+        }
+
+        /*Movimientos*/
+        .movedown {
+            margin: 0 auto;
+        }
+
+        .modalmask:target .movedown{       
+            margin:10% auto;
+        }
+
+        /*Boton de cerrar*/
+        .close {
+            background: #f44336;
+            color: #FFFFFF;
+            line-height: 25px;
+            position: absolute;
+            right: 5px;
+            text-align: center;
+            top: 5px;
+            width: 24px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .close:hover {
+            background: #FAAC58;
+            color:#222;
+        }
     </style>
 </body>
 </html>
