@@ -76,13 +76,6 @@ btn_map_jiquilisco.addEventListener("click", () => {
   window.open("https://goo.gl/maps/tg1SyTg9Kqpk2arY6", "_blank");
 });
 
-// Ozatlan
-const btn_map_ozatlan = document.getElementById("btn_map_ozatlan");
-
-btn_map_ozatlan.addEventListener("click", () => {
-  window.open("https://goo.gl/maps/eGikxkJmkTiAPTX86", "_blank");
-});
-
 // Santa Elena
 const btn_map_se = document.getElementById("btn_map_se");
 
