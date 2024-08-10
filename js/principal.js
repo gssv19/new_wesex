@@ -244,8 +244,6 @@ const rastreo = async () => {
     })
       .then((response) => response.json())
       .then((datos) => {
-        console.log(datos);
-
         // Colocamos en reversa los registros...
         let datos_r = datos.rows.reverse();
         // Total de fiasl...
