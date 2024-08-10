@@ -230,8 +230,8 @@ let box_t_carga = document.getElementById("box_tracking_carga");
 
 const rastreo = async () => {
   if (
-    input_number.value !== "" &&
-    (input_number.value == 8 || input_number.value == 10)
+    (input_number.value !== "" && input_number.value.length == 8) ||
+    (input_number.value !== "" && input_number.value.length == 10)
   ) {
     fetch("https://esexsystem.xyz/encomiendas/l_tracking_encsv/", {
       method: "POST",
