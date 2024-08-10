@@ -236,8 +236,11 @@ let box_t_aereo = document.getElementById("box_tracking_aereo");
 let box_t_carga = document.getElementById("box_tracking_carga");
 
 const rastreo = async () => {
-  if (input_number.value !== "") {
-    fetch("http://localhost:4000/encomiendas/l_tracking_encsv/", {
+  if (
+    input_number.value !== "" &&
+    (input_number.value == 8 || input_number.value == 10)
+  ) {
+    fetch("https://esexsystem.xyz/encomiendas/l_tracking_encsv/", {
       method: "POST",
       body: JSON.stringify({ tel_csv: input_number.value }),
       headers: {
@@ -261,47 +264,47 @@ const rastreo = async () => {
         // Validamos para mensaje al cliente...
         if (no_filas <= 0) {
           box_t_aereo.innerHTML += `
-				<div class="timeline-item">
-					<div class="timeline-dot"></div>
-					<div class="timeline-content">
-						<h3>No tiene encomienda para rastrear.</h3>
-					</div>
-				</div>
-			`;
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>No tiene encomienda para rastrear.</h3>
+              </div>
+            </div>
+          `;
           box_t_carga.innerHTML += `
-				<div class="timeline-item">
-					<div class="timeline-dot_carga"></div>
-					<div class="timeline-content_carga">
-						<h3>No tiene encomienda para rastrear.</h3>
-					</div>
-				</div>
-			`;
+            <div class="timeline-item">
+              <div class="timeline-dot_carga"></div>
+              <div class="timeline-content_carga">
+                <h3>No tiene encomienda para rastrear.</h3>
+              </div>
+            </div>
+          `;
         } else {
           // Creamos un ciclo...
           for (let index = 0; index < no_filas; index++) {
             // Validamos..
             if (datos_r[index].tipo_encsv == "Normal") {
               box_t_aereo.innerHTML += `
-				<div class="timeline-item">
-					<div class="timeline-dot"></div>
-					<div class="timeline-date">${datos_r[index].fecha_reg}</div>
-					<div class="timeline-content">
-						<h3>${datos_r[index].estado_encsv}</h3>
-						<p>${datos_r[index].descri_encsv}</p>
-					</div>
-				</div>
-			`;
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-date">${datos_r[index].fecha_reg}</div>
+                  <div class="timeline-content">
+                    <h3>${datos_r[index].estado_encsv}</h3>
+                    <p>${datos_r[index].descri_encsv}</p>
+                  </div>
+                </div>
+              `;
             } else if (datos_r[index].tipo_encsv == "Carga") {
               box_t_carga.innerHTML += `
-				<div class="timeline-item">
-					<div class="timeline-dot_carga"></div>
-					<div class="timeline-date_carga">${datos_r[index].fecha_reg}</div>
-					<div class="timeline-content_carga">
-						<h3>${datos_r[index].estado_encsv}</h3>
-						<p>${datos_r[index].descri_encsv}</p>
-					</div>
-				</div>
-			`;
+                <div class="timeline-item">
+                  <div class="timeline-dot_carga"></div>
+                  <div class="timeline-date_carga">${datos_r[index].fecha_reg}</div>
+                  <div class="timeline-content_carga">
+                    <h3>${datos_r[index].estado_encsv}</h3>
+                    <p>${datos_r[index].descri_encsv}</p>
+                  </div>
+                </div>
+              `;
             } else {
               // No hacer nada...
             }
