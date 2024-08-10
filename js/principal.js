@@ -229,6 +229,7 @@ let box_t_aereo = document.getElementById("box_tracking_aereo");
 let box_t_carga = document.getElementById("box_tracking_carga");
 
 const rastreo = async () => {
+  // Validamos la cantidad de numeros en el CSSMathProduct.
   if (
     (input_number.value !== "" && input_number.value.length == 8) ||
     (input_number.value !== "" && input_number.value.length == 10)
