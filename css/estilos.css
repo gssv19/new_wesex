@@ -48,8 +48,12 @@ p {
 }
 
 .banner .content_banner {
-    max-width: 1500px;
+    max-width: 90%;
     text-align: center;
+}
+
+.banner .content_banner img {
+    width: 60%;
 }
 
 .banner .content_banner h2 {
@@ -1410,6 +1414,11 @@ img.btn-whatsapp:hover{
         margin: 0 0 10px 0;
     }
 
+    /* SERVICIOS */
+    .services_container {
+        grid-template-columns: 1fr 1fr;
+    }
+
     /* LINEA DE TIEMPO */
     .linea_oficinas {
         margin: 100px auto;
@@ -1517,9 +1526,18 @@ img.btn-whatsapp:hover{
         width: 50%;
     }
 
+    .banner .content_banner img {
+        width: 90%;
+    }
+
     .banner .content_banner h2 {
-        font-size: 2.2em;
+        font-size: 2em;
         color: #FFF;
+    }
+
+    .banner .content_banner p {
+        margin-top: 10px;
+        font-size: 18px;
     }
 
     .titleText {
@@ -1570,6 +1588,11 @@ img.btn-whatsapp:hover{
 
     .resaltar_anaranjado {
         font-size: 14.8px;
+    }
+
+    /* SERVICIOS */
+    .services_container {
+        grid-template-columns: 1fr;
     }
 
     /* SECCION OFICINAS */
