@@ -319,3 +319,102 @@ input_number.addEventListener("input", (event) => {
   event.preventDefault();
   rastreo();
 });
+
+/* FUNCION PARA EL RASTREO DE PAQUETES DE ESTADOS UNIDOS */
+let input_number_usa = document.getElementById("input_number_usa_tracking");
+let btn_search_usa = document.getElementById("btn_number_usa_tracking");
+let box_t_aereo_usa = document.getElementById("box_tracking_aereo");
+let box_t_carga_usa = document.getElementById("box_tracking_carga");
+
+const rastreo_usa = async () => {
+  // Validamos la cantidad de numeros en el CSSMathProduct.
+  if (
+    (input_number_usa.value !== "" && input_number_usa.value.length == 8) ||
+    (input_number_usa.value !== "" && input_number_usa.value.length == 10)
+  ) {
+    // fetch("https://esexsystem.xyz/encomiendas_usa/l_tracking_encusa/", {
+    fetch("https://esexsystem.xyz/encomiendas_usa/l_tracking_encusa/", {
+      method: "POST",
+      body: JSON.stringify({ tel_csv: input_number_usa.value }),
+      headers: {
+        "Content-Type": "application/json",
+        "API-Key": "secret",
+      },
+    })
+      .then((response) => response.json())
+      .then((datos) => {
+        // Colocamos en reversa los registros...
+        let datos_r = datos.rows.reverse();
+        // Total de fiasl...
+        let no_filas = datos.rows.length;
+
+        // Limpiamos el contenedor...
+        box_t_aereo_usa.innerHTML = "";
+        box_t_carga_usa.innerHTML = "";
+
+        // Validamos para mensaje al cliente...
+        if (no_filas <= 0) {
+          box_t_aereo_usa.innerHTML += `
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>No tiene encomienda para rastrear.</h3>
+              </div>
+            </div>
+          `;
+          box_t_carga_usa.innerHTML += `
+            <div class="timeline-item">
+              <div class="timeline-dot_carga"></div>
+              <div class="timeline-content_carga">
+                <h3>No tiene encomienda para rastrear.</h3>
+              </div>
+            </div>
+          `;
+        } else {
+          // Creamos un ciclo...
+          for (let index = 0; index < no_filas; index++) {
+            // Validamos..
+            if (datos_r[index].tipo_encusa == "Normal") {
+              box_t_aereo_usa.innerHTML += `
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-date">${datos_r[index].fecha_reg}</div>
+                  <div class="timeline-content">
+                    <h3>${datos_r[index].estado_encusa}</h3>
+                    <p>${datos_r[index].descri_encusa}</p>
+                  </div>
+                </div>
+              `;
+            } else if (datos_r[index].tipo_encusa == "Carga") {
+              box_t_carga_usa.innerHTML += `
+                <div class="timeline-item">
+                  <div class="timeline-dot_carga"></div>
+                  <div class="timeline-date_carga">${datos_r[index].fecha_reg}</div>
+                  <div class="timeline-content_carga">
+                    <h3>${datos_r[index].estado_encusa}</h3>
+                    <p>${datos_r[index].descri_encusa}</p>
+                  </div>
+                </div>
+              `;
+            } else {
+              // No hacer nada...
+            }
+          }
+        }
+      })
+      .catch((error) => {
+        console.error("Ocurrio un error: ", error);
+      });
+  } else {
+  }
+};
+
+btn_search_usa.addEventListener("click", (event) => {
+  event.preventDefault();
+  rastreo_usa();
+});
+
+input_number_usa.addEventListener("input", (event) => {
+  event.preventDefault();
+  rastreo_usa();
+});
