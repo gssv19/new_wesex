@@ -275,7 +275,10 @@ const rastreo = async () => {
           // Creamos un ciclo...
           for (let index = 0; index < no_filas; index++) {
             // Validamos..
-            if (datos_r[index].tipo_encsv == "Normal") {
+            if (
+              datos_r[index].tipo_encsv == "Normal" ||
+              datos_r[index].tipo_encsv == "normal"
+            ) {
               box_t_aereo.innerHTML += `
                 <div class="timeline-item">
                   <div class="timeline-dot"></div>
@@ -286,12 +289,29 @@ const rastreo = async () => {
                   </div>
                 </div>
               `;
-            } else if (datos_r[index].tipo_encsv == "Carga") {
+            } else if (
+              datos_r[index].tipo_encsv == "Carga" ||
+              datos_r[index].tipo_encsv == "carga"
+            ) {
               box_t_carga.innerHTML += `
                 <div class="timeline-item">
                   <div class="timeline-dot_carga"></div>
                   <div class="timeline-date_carga">${datos_r[index].fecha_reg}</div>
                   <div class="timeline-content_carga">
+                    <h3>${datos_r[index].estado_encsv}</h3>
+                    <p>${datos_r[index].descri_encsv}</p>
+                  </div>
+                </div>
+              `;
+            } else if (
+              datos_r[index].tipo_encsv == "Interline" ||
+              datos_r[index].tipo_encsv == "interline"
+            ) {
+              box_t_carga.innerHTML += `
+                <div class="timeline-item">
+                  <div class="timeline-dot_interline"></div>
+                  <div class="timeline-date_interline">${datos_r[index].fecha_reg}</div>
+                  <div class="timeline-content_interline">
                     <h3>${datos_r[index].estado_encsv}</h3>
                     <p>${datos_r[index].descri_encsv}</p>
                   </div>

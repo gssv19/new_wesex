@@ -388,6 +388,7 @@ section {
 	line-height: 22px;
 }
 
+/* Encomiendas de carga */
 .timeline-item:first-child .timeline-content_carga {
     background-color: var(--color_copiar);
 	padding: 30px;
@@ -409,7 +410,43 @@ section {
 	line-height: 22px;
 }
 
+/* Encomiendas interline */
+.timeline-item:first-child .timeline-content_interline {
+    background-color: var(--color_amarillo);
+	padding: 30px;
+	border-radius: 5px;
+}
 
+.timeline-item:first-child .timeline-content_interline h3 {
+    font-size: 20px;
+	color: var(--color_dark);
+	margin:0 0 10px;
+	text-transform: capitalize;
+	font-weight: 500;
+}
+
+.timeline-item:first-child .timeline-content_interline p {
+    color: var(--text_grey);
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 22px;
+}
+
+.timeline-dot_interline {
+	height: 16px;
+	width: 16px;
+	background-color: var(--color_amarillo);
+	position: absolute;
+	left: 0px;
+	border-radius: 50%;
+	top: 4px;
+}
+
+.timeline-date_interline {
+	font-size: 18px;
+	color: var(--color_dark);
+	margin:6px 30px 15px;
+}
 
 #titulo_encomiendas_carga {
     display: block;
